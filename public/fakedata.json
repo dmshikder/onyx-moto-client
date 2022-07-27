@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "_id": "1",
     "img": "https://i.ibb.co/HGMdMrC/s02-img3-a.jpg",
     "description": "dfhfhfdhdfhsggsdfgsdfg",
     "minimumOrderQuantity": 500,
@@ -9,7 +9,7 @@
     "price": 30
   },
   {
-    "id": "2",
+    "_id": "2",
     "img": "https://i.ibb.co/rxSKS6Z/s02-img2-a.jpg",
     "description": "sgdsfgdfgdfg",
     "minimumOrderQuantity": 500,
@@ -18,7 +18,7 @@
     "price": 30
   },
   {
-    "id": "3",
+    "_id": "3",
     "img": "https://i.ibb.co/NZCKJxz/s02-img1-a.jpg",
     "description": "sdgdfgdgdfgdfg",
     "minimumOrderQuantity": 500,
@@ -27,7 +27,7 @@
     "price": 30
   },
   {
-    "id": "4",
+    "_id": "4",
     "img": "https://i.ibb.co/JHjnc1F/Motorcycle-Muffler-545x363px2.jpg",
     "description": "sdgdsfgdsfgdsfg",
     "minimumOrderQuantity": 500,
