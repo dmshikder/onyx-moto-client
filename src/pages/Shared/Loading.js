@@ -2,9 +2,9 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div>
-            <h2>this is loading</h2>
-        </div>
+        <div className="flex items-center justify-center ">
+    <div className="w-20 h-20 border-b-2 border-green-400 rounded-full animate-spin"></div>
+</div>
     );
 };
 
