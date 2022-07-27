@@ -2,7 +2,7 @@ import React from 'react';
 
 const QualityAssurance = () => {
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl mt-10 mb-10 max-w-7xl mx-auto">
+        <div className="card lg:card-side bg-base-200 shadow-xl mt-10 mb-10 max-w-7xl mx-auto">
         {/* <figure><img src="https://placeimg.com/400/400/arch" alt="Album"/></figure> */}
 
         <div className="carousel w-full">

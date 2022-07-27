@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 
 const SingleParts = ({ part }) => {
   const {
@@ -31,7 +33,7 @@ const SingleParts = ({ part }) => {
           {availableQuantity}
         </p>
         <div className="card-actions">
-          <button className="btn btn-primary">Purchase  Now</button>
+          <button className="btn btn-primary"><Link to='/purchase'>Purchase  Now</Link> </button>
         </div>
       </div>
     </div>

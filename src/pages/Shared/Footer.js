@@ -15,7 +15,7 @@ const Footer = () => {
           </div>
         </div> 
         <div>
-          <p>Copyright © {date} -Onyx Moto | All rights reserved </p>
+          <p>Copyright © {date} Onyx Moto | All rights reserved </p>
         </div>
       </footer>
     );
