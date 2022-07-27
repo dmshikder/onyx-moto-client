@@ -108,7 +108,7 @@ const Login = () => {
              
               <input className="btn w-full max-w-xs" type="submit" value='Login' />
             </form>
-            <p>New to Onyx Moto <Link className="text-secondary" to='/signup'>Create New Account</Link></p>
+            <p>New to Onyx Moto? <Link className="text-secondary" to='/signup'>Create New Account</Link></p>
             <div className="divider">OR</div>
             <button
               onClick={() => signInWithGoogle()}
