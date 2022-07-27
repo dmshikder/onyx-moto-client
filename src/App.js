@@ -9,7 +9,7 @@ import Navbar from './pages/Shared/Navbar';
 
 function App() {
   return (
-    <div>
+    <div >
       <Navbar/>
     <Routes>
     <Route path='/' element={<Home/>}></Route>

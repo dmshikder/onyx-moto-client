@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "img": "https://i.ibb.co/HGMdMrC/s02-img3-a.jpg",
+    "description": "dfhfhfdhdfhsggsdfgsdfg",
+    "minimumOrderQuantity": 500,
+    "availableQuantity": 30000,
+    "name": "Engine & Transmission",
+    "price": 30
+  },
+  {
+    "id": "2",
+    "img": "https://i.ibb.co/rxSKS6Z/s02-img2-a.jpg",
+    "description": "sgdsfgdfgdfg",
+    "minimumOrderQuantity": 500,
+    "availableQuantity": 30000,
+    "name": "Electrical",
+    "price": 30
+  },
+  {
+    "id": "3",
+    "img": "https://i.ibb.co/NZCKJxz/s02-img1-a.jpg",
+    "description": "sdgdfgdgdfgdfg",
+    "minimumOrderQuantity": 500,
+    "availableQuantity": 30000,
+    "name": "Braking",
+    "price": 30
+  },
+  {
+    "id": "4",
+    "img": "https://i.ibb.co/JHjnc1F/Motorcycle-Muffler-545x363px2.jpg",
+    "description": "sdgdsfgdsfgdsfg",
+    "minimumOrderQuantity": 500,
+    "availableQuantity": 30000,
+    "name": "Intake & Exhausts",
+    "price": 30
+  }
+]
