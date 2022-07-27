@@ -134,11 +134,11 @@ const SignUp = () => {
           <p>Already have an account? <Link className="text-secondary" to='/login'>Please Login</Link></p>
           <div className="divider">OR</div>
           <button
-            onClick={() => createUserWithEmailAndPassword()}
-            className="btn btn-outline"
-          >
-            <img src="https://i.ibb.co/JttsWGr/google-logo-9808.png" alt="" className='w-6 mr-4'/>Continue with GOOGLE
-          </button>
+              onClick={() => signInWithGoogle()}
+              className="btn btn-outline" 
+            >
+             <img src="https://i.ibb.co/JttsWGr/google-logo-9808.png" alt="" className='w-6 mr-4'/> Continue with GOOGLE
+            </button>
         </div>
       </div>
     </div>

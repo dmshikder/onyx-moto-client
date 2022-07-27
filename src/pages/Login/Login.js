@@ -112,7 +112,7 @@ const Login = () => {
             <div className="divider">OR</div>
             <button
               onClick={() => signInWithGoogle()}
-              className="btn btn-outline"
+              className="btn btn-outline" 
             >
              <img src="https://i.ibb.co/JttsWGr/google-logo-9808.png" alt="" className='w-6 mr-4'/> Continue with GOOGLE
             </button>
