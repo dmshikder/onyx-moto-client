@@ -11,12 +11,12 @@ const SingleParts = ({ part }) => {
   } = part;
 
   return (
-    <div class="card mt-4  bg-green-300 shadow-xl">
-      <figure class=" pt-4">
-        <img src={img} alt="pic" class="rounded-xl" />
+    <div className="card mt-4  bg-green-300 shadow-xl">
+      <figure className=" pt-4">
+        <img src={img} alt="pic" className="rounded-xl" />
       </figure>
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">{name}</h2>
+      <div className="card-body items-center text-center">
+        <h2 className="card-title">{name}</h2>
         <p>{description}</p>
         <p>
           {" "}
@@ -30,8 +30,8 @@ const SingleParts = ({ part }) => {
           <span className="fw-bold">Available Quantity: </span>{" "}
           {availableQuantity}
         </p>
-        <div class="card-actions">
-          <button class="btn btn-primary">Purchase  Now</button>
+        <div className="card-actions">
+          <button className="btn btn-primary">Purchase  Now</button>
         </div>
       </div>
     </div>
