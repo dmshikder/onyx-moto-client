@@ -11,6 +11,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import RequireAuth from "./pages/Login/RequireAuth";
 import SignUp from "./pages/Login/SignUp";
+import MyPortfolio from "./pages/MyPortfolio/MyPortfolio";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import PurchaseIntent from "./pages/PurchaseIntent/PurchaseIntent";
 import Footer from "./pages/Shared/Footer";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/allparts" element={<AllParts/>}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/myportfolio" element={<MyPortfolio/>}></Route>
         <Route path="dashboard" element={<RequireAuth><Dashboard/></RequireAuth>} >
         <Route index element={<MyOrders/>}></Route>
         <Route path="review" element={<AddReview/>}></Route>

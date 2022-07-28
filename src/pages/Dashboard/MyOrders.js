@@ -28,9 +28,9 @@ const MyOrders = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((part) => (
+            {bookings.map((part,index) => (
               <tr>
-                <th>1</th>
+                <th>{index +1}</th>
                 <td>{part.partsName}</td>
                 <td>$ {part.pricePerUnit}</td>
                 <td>{part.quantity}</td>
