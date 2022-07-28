@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 
 const Booking = () => {
+    const { id, name } = useParams();
+    
   const [user] = useAuthState(auth);
+  const [parts, setParts] = useState({});
+
+  useEffect(() => {
+    const url = `http://localhost:5000/allparts/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setParts(data));
+  }, []);
 
   const handleBooking = (event) => {
     event.preventDefault();
@@ -13,6 +24,8 @@ const Booking = () => {
     const booking = {
       name: user.displayName,
       email: user.email,
+      partsName: parts.name,
+      pricePerUnit:parts.price,
       address: event.target.address.value,
       phone: event.target.phone.value,
       quantity: event.target.quantity.value,
@@ -50,6 +63,21 @@ const Booking = () => {
           value={user?.email || ""}
           className="input input-bordered w-full max-w-xs"
         />
+          <input
+          type="text"
+          name="partsName"
+          value={parts.name} disabled
+          className="input input-bordered w-full max-w-xs"
+          required
+        />
+         <input
+          type="number"
+          name="price"
+          value={parts.price} disabled
+          className="input input-bordered w-full max-w-xs"
+          required
+        />
+      
         <input
           type="number"
           name="phone"
@@ -71,6 +99,7 @@ const Booking = () => {
           className="input input-bordered w-full max-w-xs"
           required
         />
+       
         <input
           type="submit"
           value="Submit"
