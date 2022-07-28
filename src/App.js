@@ -11,7 +11,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import RequireAuth from "./pages/Login/RequireAuth";
 import SignUp from "./pages/Login/SignUp";
-import PageNotFound from "./pages/PageNotFound";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import PurchaseIntent from "./pages/PurchaseIntent/PurchaseIntent";
 import Footer from "./pages/Shared/Footer";
 import Navbar from "./pages/Shared/Navbar";
