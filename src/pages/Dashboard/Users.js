@@ -2,9 +2,15 @@ import React, { useEffect, useState } from "react";
 import UserRow from "./UserRow";
 
 const Users = () => {
+  
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("http://localhost:5000/user",{
+      method:'GET',
+      headers:{
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    }
+    })
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
@@ -31,6 +37,7 @@ const Users = () => {
         
     </tbody>
   </table>
+ 
 </div>
   );
 };

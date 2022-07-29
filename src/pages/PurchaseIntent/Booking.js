@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 
 const Booking = () => {
@@ -43,7 +42,7 @@ const Booking = () => {
         console.log(data);
       });
   };
-  return (
+  return ( 
     <div>
       <form
         onSubmit={handleBooking}
@@ -106,7 +105,7 @@ const Booking = () => {
           className="btn btn-secondary w-full max-w-xs"
         />
       </form>
-      <ToastContainer></ToastContainer>
+      
     </div>
   );
 };

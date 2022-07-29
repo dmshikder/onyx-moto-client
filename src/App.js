@@ -1,15 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 import AllParts from "./pages/AllParts/AllParts";
 import Blogs from "./pages/Blogs/Blogs";
+import AddParts from "./pages/Dashboard/AddParts";
 import AddReview from './pages/Dashboard/AddReview';
 import Dashboard from "./pages/Dashboard/Dashboard";
+import ManageOrders from "./pages/Dashboard/ManageOrders";
+import ManageParts from "./pages/Dashboard/ManageParts";
 import MyOrders from './pages/Dashboard/MyOrders';
 import MyProfile from './pages/Dashboard/MyProfile';
 import Users from "./pages/Dashboard/Users";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
+import RequireAdmin from "./pages/Login/RequireAdmin";
 import RequireAuth from "./pages/Login/RequireAuth";
 import SignUp from "./pages/Login/SignUp";
 import MyPortfolio from "./pages/MyPortfolio/MyPortfolio";
@@ -31,7 +36,18 @@ function App() {
         <Route index element={<MyOrders/>}></Route>
         <Route path="review" element={<AddReview/>}></Route>
         <Route path="profile" element={<MyProfile/>}></Route>
-        <Route path="users" element={<Users/>}></Route>
+        <Route path="manageorders" element={<RequireAdmin>
+          <ManageOrders/>
+        </RequireAdmin>}></Route>
+        <Route path="manageparts" element={<RequireAdmin>
+          <ManageParts/>
+        </RequireAdmin>}></Route>
+        <Route path="addparts" element={<RequireAdmin>
+          <AddParts/>
+        </RequireAdmin>}></Route>
+        <Route path="users" element={<RequireAdmin>
+          <Users/>
+        </RequireAdmin>}></Route>
 
 
         </Route>
@@ -49,8 +65,9 @@ function App() {
 
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
+      <ToastContainer/>
       <Footer />
-      <ToastContainer />
+      
     </div>
   );
 }
