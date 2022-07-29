@@ -1,13 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useParts from '../../hooks/useParts';
 
 const ManageParts = () => {
-    const [parts, setParts] = useState([]);
-    const [updatedParts, setUpdatedParts] = useState([]);
-    useEffect(() => {
-      fetch("http://localhost:5000/allparts")
-        .then((res) => res.json())
-        .then((data) => setParts(data));
-    }, []);
+    const [parts, setParts] = useParts([]);
+
+    const handleDelete = (id) => {
+      const proceed = window.confirm("Are you sure?");
+      if (proceed) {
+        const url = `http://localhost:5000/allparts/${id}`;
+        fetch(url, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            const remaining = parts.filter((part) => part._id !== id);
+            setParts(remaining);
+          });
+      }
+    };
 
    
     return (
@@ -19,7 +30,7 @@ const ManageParts = () => {
             <img className='rounded-lg' src={part.img} alt="" />
              <p><span className='font-bold'>Parts Name:</span> {part.name}</p>
             <p className='pb-4'><span className='font-bold'>Available Quantity:</span> {part.availableQuantity}</p>
-            <button className="btn btn-xs" >delete</button>
+            <button onClick={() => handleDelete(part._id)} className="btn btn-xs" >delete</button>
            </div>
             
           ))}
