@@ -28,6 +28,7 @@ const Booking = () => {
       address: event.target.address.value,
       phone: event.target.phone.value,
       quantity: event.target.quantity.value,
+      totalPrice: parts.price * event.target.quantity.value ,
     };
 
     fetch("http://localhost:5000/booking", {
