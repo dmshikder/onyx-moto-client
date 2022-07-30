@@ -12,14 +12,14 @@ const BusinessSummary = () => {
           <div>
            <img src="https://i.ibb.co/mbg2329/imgbin-computer-icons-share-icon-wildomar-icon-country-png.png" alt=""  className="w-20"/>
           </div>
-          <div class="stat-value">85+ </div>
+          <div className="stat-value">85+ </div>
           <div className="text-blue-500">Total Countries</div>
         </div>
         <div className="card p-10 bg-base-200 shadow-xl">
           <div>
            <img src="https://i.ibb.co/zsBcbDL/delivery-truck.png" alt=""  className="w-20"/>
           </div>
-          <div class="stat-value">4500+ </div>
+          <div className="stat-value">4500+ </div>
           <div className="text-blue-500">Complete Delivery</div>
         </div>
   
@@ -27,7 +27,7 @@ const BusinessSummary = () => {
         <div>
            <img src="https://i.ibb.co/pP32ZrQ/Nice-Png-customer-icon-png-1395477.png" alt=""  className="w-20"/>
           </div>
-          <div class="stat-value">4,200+</div>
+          <div className="stat-value">4,200+</div>
           <div className="text-blue-500">Happy clients</div>
         </div>
   
@@ -35,7 +35,7 @@ const BusinessSummary = () => {
         <div>
            <img src="https://i.ibb.co/WWjFjm0/pngaaa-com-2269073.png" alt=""  className="w-20"/>
           </div>
-          <div class="stat-value">1700+</div>
+          <div className="stat-value">1700+</div>
           <div className="text-blue-500">Feedbacks</div>
         </div>
       </div>

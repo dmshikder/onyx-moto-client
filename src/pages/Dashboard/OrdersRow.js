@@ -1,8 +1,8 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const UserRow = ({user}) => {
-    const {email,role} = user;
+const OrdersRow = ({booking}) => {
+    const {email,name,partsName,quantity} = booking;
     const makeAdmin=()=>{
         fetch(`http://localhost:5000/user/admin/${email}`,{
             method:'PUT',
@@ -27,12 +27,13 @@ const UserRow = ({user}) => {
         <tr>
         <th>1</th>
         <td>{email}</td>
-        <td>{
-            role!=='admin' &&
-            <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button>}</td>
-        <td><button className="btn btn-xs">Remove User</button></td>
+        <td>{name}</td>
+        <td>{partsName}</td>
+        <td>{quantity}</td>
+        
+        
       </tr>
     );
 };
 
-export default UserRow;
+export default OrdersRow;

@@ -4,10 +4,10 @@ import "./MyPortfolio.css";
 const MyPortfolio = () => {
   return (
     <div>
-      <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content text-center">
-          <div class="max-w-md">
-            <h1 class="text-5xl font-bold pb-10">Dost Mohammad Shikder</h1>
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content text-center">
+          <div className="max-w-md">
+            <h1 className="text-5xl font-bold pb-10">Dost Mohammad Shikder</h1>
             <div>
               <div className="grid grid-flow-col gap-4">
                 <a
@@ -58,7 +58,7 @@ const MyPortfolio = () => {
                 </a>
               </div>
             </div>
-            <p class="py-6">
+            <p className="py-6">
               I am a front end web developer. I have completed my graduation in
               Electrical and Electronic Engineering from Independent University
               Bangladesh (IUB). Currently doing masters in Information System
