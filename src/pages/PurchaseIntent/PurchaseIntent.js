@@ -7,7 +7,7 @@ const PurchaseIntent = () => {
   const [parts, setParts] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/allparts/${id}`;
+    const url = `https://lit-crag-63587.herokuapp.com/allparts/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setParts(data));

@@ -12,7 +12,7 @@ const CheckoutForm = ({ booking }) => {
 
   const { totalPrice, email, name, _id } = booking;
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://lit-crag-63587.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,7 +73,7 @@ const CheckoutForm = ({ booking }) => {
         booking: _id,
         transactionId:paymentIntent.id
       }
-      fetch(`http://localhost:5000/booking/${_id}`,{
+      fetch(`https://lit-crag-63587.herokuapp.com/booking/${_id}`,{
         method:'PATCH',
         headers: {
             "content-type": "application/json",

@@ -1,0 +1,30 @@
+@media (max-width: 780px) {
+  thead {
+    display: none;
+  }
+  .table,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+  tr {
+    margin-bottom: 20px;
+  }
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    width: 30%;
+    text-align: left;
+    font-weight: bold;
+    background: greenyellow;
+    border-radius: 5px;
+  }
+  td span {
+    display: block;
+    width: 100%;
+    padding-left: 40%;
+    color: black;
+  }
+}

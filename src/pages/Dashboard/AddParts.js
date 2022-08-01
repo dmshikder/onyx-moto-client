@@ -6,7 +6,7 @@ const AddParts = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         console.log(data);
-        const url = `http://localhost:5000/allparts`;
+        const url = `https://lit-crag-63587.herokuapp.com/allparts`;
         fetch(url, {
           method: "POST",
           headers: {

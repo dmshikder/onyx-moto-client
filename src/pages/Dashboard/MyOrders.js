@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useBookings from "../../hooks/useBookings";
+import './MyOrders.css';
 
 const MyOrders = () => {
   const [bookings, setBookings] = useBookings([]);
@@ -8,7 +9,7 @@ const MyOrders = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/booking/${id}`;
+      const url = `https://lit-crag-63587.herokuapp.com/booking/${id}`;
       fetch(url, {
         method: "DELETE",
         headers: {
@@ -31,7 +32,7 @@ const MyOrders = () => {
         <table class="table w-full">
           <thead>
             <tr>
-              <th></th>
+              <th>No.</th>
               <th>Parts Name</th>
               <th>Price Per Unit</th>
               <th>Quantity</th>
@@ -43,13 +44,13 @@ const MyOrders = () => {
           <tbody>
             {bookings.map((a, index) => (
               <tr key={a._id}>
-                <th>{index + 1}</th>
-                <td>{a.partsName}</td>
-                <td>{a.pricePerUnit}</td>
-                <td>{a.quantity}</td>
-                <td>{a.totalPrice}</td>
-                <td>
-                  {a.totalPrice && !a.paid && (
+                <td data-label='No.'><span>{index + 1}</span></td>
+                <td data-label='Parts Name'><span>{a.partsName}</span></td>
+                <td data-label='Price Per Unit'><span>{a.pricePerUnit}</span></td>
+                <td data-label='Quantity'><span>{a.quantity}</span></td>
+                <td data-label='Total Price'><span>{a.totalPrice}</span></td>
+                <td data-label='Action'>
+                  <span>{a.totalPrice && !a.paid && (
                     <Link to={`/dashboard/payment/${a._id}`}>
                       {" "}
                       <button className="btn btn-xs btn-success">Pay</button>
@@ -65,17 +66,17 @@ const MyOrders = () => {
                         <span className="text-success">{a.transactionId}</span>
                       </p>
                     </div>
-                  )}
+                  )}</span>
                 </td>
                 <td>
-                  {a.totalPrice && !a.paid && (
+                  <span>{a.totalPrice && !a.paid && (
                     <button
                       onClick={() => handleDelete(a._id)}
                       className="btn btn-xs"
                     >
                       delete
                     </button>
-                  )}
+                  )}</span>
                 </td>
               </tr>
             ))}

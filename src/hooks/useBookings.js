@@ -9,7 +9,7 @@ const useBookings = (id) => {
   useEffect(() => {
     
     if(user){
-      fetch(`http://localhost:5000/booking?email=${user.email}`,{
+      fetch(`https://lit-crag-63587.herokuapp.com/booking?email=${user.email}`,{
       method:'GET',
       headers:{
         authorization: `Bearer ${localStorage.getItem('accessToken')}`

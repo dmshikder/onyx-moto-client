@@ -10,7 +10,7 @@ const Booking = () => {
   const [parts, setParts] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/allparts/${id}`;
+    const url = `https://lit-crag-63587.herokuapp.com/allparts/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setParts(data));
@@ -31,7 +31,7 @@ const Booking = () => {
       totalPrice: parts.price * event.target.quantity.value ,
     };
 
-    fetch("http://localhost:5000/booking", {
+    fetch("https://lit-crag-63587.herokuapp.com/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -95,6 +95,9 @@ const Booking = () => {
         <input
           type="number"
           name="quantity"
+          min={parts.minimumOrderQuantity
+          }
+          max={parts.availableQuantity}
           placeholder="Quantity"
           className="input input-bordered w-full max-w-xs"
           required

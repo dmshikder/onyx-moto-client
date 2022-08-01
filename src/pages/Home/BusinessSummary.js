@@ -6,7 +6,7 @@ const BusinessSummary = () => {
         <h2 className="text-3xl font-bold pb-5 pt-5">Business summary </h2>
 
         <p className="text-lg pb-3">Whether in need of quality replacement parts for modern branded motorcycles or sourcing for affordable aftermarket parts, CBF has you covered.</p>
-        <div className=" flex  justify-between text-center">
+        <div className=" grid sm:grid-cols-1 lg:grid-cols-4 gap-5 text-center ml-4 mr-4">
         
         <div className="card p-10 bg-base-200 shadow-xl">
           <div>

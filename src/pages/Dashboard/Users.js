@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import UserRow from "./UserRow";
+import './Users.css';
  
 const Users = () => {
-  
+   
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/user",{
+    fetch("https://lit-crag-63587.herokuapp.com/user",{
       method:'GET',
       headers:{
         authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -21,7 +22,7 @@ const Users = () => {
    
     <thead>
       <tr>
-        <th></th>
+        <th>No.</th>
         <th>Email</th>
         <th>Create Admin</th>
         <th>Action</th>
@@ -29,9 +30,10 @@ const Users = () => {
     </thead>
     <tbody>
     {
-      users.map(user=><UserRow
+      users.map((user, index)=><UserRow
       key={user._id}
       user={user}
+      index={index}
       ></UserRow>)
     }
         

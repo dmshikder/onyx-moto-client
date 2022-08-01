@@ -9,7 +9,7 @@ const MyProfile = () => {
     const [userInfo, setUserInfo] = useState([]);
   useEffect(()=>{
     
-      fetch(`http://localhost:5000/user`)
+      fetch(`https://lit-crag-63587.herokuapp.com/user`)
   .then(res=>res.json())
   .then(data=>{
     const result = data.find(({email})=> email===user.email)
@@ -32,7 +32,7 @@ const MyProfile = () => {
 
     const updateProfile = {education, location, phone, linkedin}
 
-    fetch(`http://localhost:5000/users/${user.email}`,{
+    fetch(`https://lit-crag-63587.herokuapp.com/users/${user.email}`,{
       method:'PUT',
       headers:{
         'content-type':'application/json',

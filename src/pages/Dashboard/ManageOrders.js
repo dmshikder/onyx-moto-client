@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import './ManageOrders.css';
 import OrdersRow from './OrdersRow';
 
 const ManageOrders = () => {
     const [bookings, setBookings] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/bookings",{
+    fetch("https://lit-crag-63587.herokuapp.com/bookings",{
       method:'GET',
       headers:{
         authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,11 +16,11 @@ const ManageOrders = () => {
   }, []);
     return (
         <div className="overflow-x-auto">
-  <table className="table w-full">
+  <table className="table w-full ">
    
     <thead>
       <tr>
-        <th></th>
+        <th>No.</th>
         <th>Email</th>
         <th>Name</th>
         <th>Parts Name</th>

@@ -1,5 +1,6 @@
 import React from "react";
 import useBookings from "../../hooks/useBookings";
+import './ManageOrders.css';
 
 const OrdersRow = ({ booking, index }) => {
   const { email, name, partsName, quantity } = booking;
@@ -14,7 +15,7 @@ const OrdersRow = ({ booking, index }) => {
 
     const updateStatus = {status}
 
-    fetch(`http://localhost:5000/booking/${id}`,{
+    fetch(`https://lit-crag-63587.herokuapp.com/booking/${id}`,{
       method:'PUT',
       headers:{
         'content-type':'application/json',
@@ -41,7 +42,7 @@ const OrdersRow = ({ booking, index }) => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/booking/${id}`;
+      const url = `https://lit-crag-63587.herokuapp.com/booking/${id}`;
       fetch(url, {
         method: "DELETE",
         headers: {
@@ -60,21 +61,21 @@ const OrdersRow = ({ booking, index }) => {
 
   return (
     <tr>
-      <th>{index + 1}</th>
-      <td>{email}</td>
-      <td>{name}</td>
-      <td>{partsName}</td>
-      <td>{quantity}</td>
-      <td>
-        {booking.totalPrice && !booking.paid && (
-          <p className="text-red-500 font-bold">Unpaid</p>
+      <td data-label='No.'><span>{index + 1}</span></td>
+      <td data-label='Email'><span>{email}</span></td>
+      <td data-label='Name'><span>{name}</span></td>
+      <td data-label='Parts Name'><span>{partsName}</span></td>
+      <td data-label='Quantity'><span>{quantity}</span></td>
+      <td data-label='Status'>
+        <span>{booking.totalPrice && !booking.paid && (
+          <p className="text-red-500 bg-fuchsia-300 rounded-md text-center p-1 font-bold">Unpaid</p>
         )}
         {
-        booking.status? <p className="text-green-500 font-bold"> shipped</p> :
-        booking.totalPrice && booking.paid && (<p><span className="text-green-500 font-bold">Pending</span></p>   )}
+        booking.status? <p className="text-green-600 font-bold p-1 bg-yellow-300 rounded-md text-center"> shipped</p> :
+        booking.totalPrice && booking.paid && (<p><span className=" font-bold bg-red-400 rounded-md p-1">Pending</span></p>   )}</span>
       </td>
-      <td>
-        {booking.totalPrice && !booking.paid && (
+      <td data-label='Action'>
+        <span>{booking.totalPrice && !booking.paid && (
           <button
             onClick={() => handleDelete(booking._id)}
             className="btn btn-xs"
@@ -87,7 +88,7 @@ const OrdersRow = ({ booking, index }) => {
           <p>
             <button onClick={() => handleUpdateStatus(booking._id)} className="btn btn-xs">Approve</button>
           </p>
-        )}
+        )}</span>
       </td>
     </tr>
   );

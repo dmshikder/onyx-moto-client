@@ -20,8 +20,8 @@ const SingleParts = ({ part }) => {
 
   return (
     <div className="card mt-4  bg-green-300 shadow-xl">
-      <figure className=" pt-4">
-        <img src={img} alt="pic" className="rounded-xl" />
+      <figure className=" pt-4 ml-2 mr-2 ">
+        <img src={img} alt="pic" className="rounded-xl " />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{name}</h2>
