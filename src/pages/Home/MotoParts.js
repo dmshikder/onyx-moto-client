@@ -6,7 +6,10 @@ const MotoParts = () => {
   useEffect(() => {
     fetch("http://localhost:5000/allparts")
       .then((res) => res.json())
-      .then((data) => setParts(data));
+      .then((data) => {
+        const newData = data.splice(0,6)
+        setParts(newData)
+      });
   }, []);
   return (
     <div className="container max-w-7xl mx-auto">

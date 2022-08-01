@@ -1,106 +1,106 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 
+
 const MyProfile = () => {
-    
-    const { id} = useParams();
-    
+
   const [user] = useAuthState(auth);
-  const [parts, setParts] = useState({});
+    const [userInfo, setUserInfo] = useState([]);
+  useEffect(()=>{
+    
+      fetch(`http://localhost:5000/user`)
+  .then(res=>res.json())
+  .then(data=>{
+    const result = data.find(({email})=> email===user.email)
+    setUserInfo(result)
+    console.log(result)
+  });
+    
+  
+},[])
 
-  useEffect(() => {
-    const url = `http://localhost:5000/allparts/${id}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setParts(data));
-  }, []);
+  
 
-  const handleBooking = (event) => {
+  
+  const handleUpdateProfile = (event) => {
     event.preventDefault();
-   
+    const education = event.target.education.value;
+    const location = event.target.location.value;
+    const phone = event.target.phone.value;
+    const linkedin = event.target.linkedin.value;
 
-    const booking = {
-     
-      partsName: parts.name,
-      pricePerUnit:parts.price,
-      address: event.target.address.value,
-      phone: event.target.phone.value,
-      quantity: event.target.quantity.value,
-    };
+    const updateProfile = {education, location, phone, linkedin}
 
-    fetch("http://localhost:5000/booking", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
+    fetch(`http://localhost:5000/users/${user.email}`,{
+      method:'PUT',
+      headers:{
+        'content-type':'application/json',
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`
       },
-      body: JSON.stringify(booking),
+      body: JSON.stringify(updateProfile)
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    .then(res=>res.json())
+    .then(data=>{
+      console.log('success', data);
+      alert('user updated')
+    })
+
   };
   return (
     <div>
-      <div>
+      <div className="grid grid-cols-1 gap-3 justify-items-center mt-2 mb-10 pb-4 card  bg-base-100 shadow-xl">
         <h2 className="text-5xl pb-4">My Profile</h2>
-        <h2>Name: {user.displayName}</h2>
-        <h2>Email: {user.email}</h2>
+        <p>Name: {user.displayName}</p>
+        <p>Email: {user.email}</p>
+        <p>Education: {userInfo.education}</p>
+        <p>Location: {userInfo.location}</p>
+        <p>Phone: {userInfo.phone}</p>
+        <p>LinkedIn: {userInfo.linkedin}</p>
+        
       </div>
       <div>
-      <form
-        onSubmit={handleBooking}
-        className="grid grid-cols-1 gap-3 justify-items-center mt-2"
-      >
-        
-        
+        <form
+          onSubmit={handleUpdateProfile}
+          className="grid grid-cols-1 gap-3 justify-items-center mt-2"
+        >
           <input
-          type="text"
-          name="education"
-          placeholder="Education"
-          className="input input-bordered w-full max-w-xs"
-          required
-        />
-         <input
-          type="number"
-          name="price"
-          placeholder="Education"
-          className="input input-bordered w-full max-w-xs"
-          required
-        />
-      
-        <input
-          type="number"
-          name="phone"
-          placeholder="Phone Number"
-          className="input input-bordered w-full max-w-xs"
-          required
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          className="input input-bordered w-full max-w-xs"
-          required
-        />
-        <input
-          type="number"
-          name="quantity"
-          placeholder="Quantity"
-          className="input input-bordered w-full max-w-xs"
-          required
-        />
-       
-        <input
-          type="submit"
-          value="Submit"
-          className="btn btn-secondary w-full max-w-xs"
-        />
-      </form>
-      
-    </div>
+            type="text"
+            name="education"
+            placeholder="Education"
+            className="input input-bordered w-full max-w-xs"
+            required
+          />
+          <input
+            type="text"
+            name="location"
+            placeholder="Location"
+            className="input input-bordered w-full max-w-xs"
+            required
+          />
+
+          <input
+            type="number"
+            name="phone"
+            placeholder="Phone Number"
+            className="input input-bordered w-full max-w-xs"
+            required
+          />
+          <input
+            type="text"
+            name="linkedin"
+            placeholder="LinkedIn profile link"
+            className="input input-bordered w-full max-w-xs"
+            required
+          />
+
+          <input
+            type="submit"
+            value="Submit"
+            className="btn btn-secondary w-full max-w-xs"
+          />
+        </form>
+      </div>
     </div>
   );
 };

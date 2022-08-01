@@ -8,7 +8,6 @@ const SingleReview = ({ sreview }) => {
       <p><span className="font-bold">Name: </span>{name}</p>
         <p>{review}</p>
         <p><span className="font-bold">Ratings out of 5:</span> {ratings}</p>
-        
       </div>
     </div>
   );
