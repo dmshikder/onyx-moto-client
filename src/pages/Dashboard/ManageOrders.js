@@ -28,8 +28,7 @@ const ManageOrders = () => {
         <th>Action</th>
       </tr>
     </thead>
-    <tbody>
-   
+    <tbody> 
     {
       bookings.map((booking,index)=><OrdersRow
       key={booking._id}

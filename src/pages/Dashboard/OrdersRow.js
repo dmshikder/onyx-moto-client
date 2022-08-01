@@ -6,6 +6,38 @@ const OrdersRow = ({ booking, index }) => {
 
   const [bookings, setBookings] = useBookings([]);
 
+
+
+  const handleUpdateStatus = (id) => {
+  
+    const status = 'approved'
+
+    const updateStatus = {status}
+
+    fetch(`http://localhost:5000/booking/${id}`,{
+      method:'PUT',
+      headers:{
+        'content-type':'application/json',
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      },
+      body: JSON.stringify(updateStatus)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log('success', data);
+      alert('status updated')
+    })
+
+  };
+
+
+
+
+
+
+
+
+
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
@@ -37,11 +69,9 @@ const OrdersRow = ({ booking, index }) => {
         {booking.totalPrice && !booking.paid && (
           <p className="text-red-500 font-bold">Unpaid</p>
         )}
-        {booking.totalPrice && booking.paid && (
-          <p>
-            <span className="text-green-500 font-bold">Pending</span>
-          </p>
-        )}
+        {
+        booking.status? <p className="text-green-500 font-bold"> shipped</p> :
+        booking.totalPrice && booking.paid && (<p><span className="text-green-500 font-bold">Pending</span></p>   )}
       </td>
       <td>
         {booking.totalPrice && !booking.paid && (
@@ -53,9 +83,9 @@ const OrdersRow = ({ booking, index }) => {
           </button>
         )}
 
-        {booking.totalPrice && booking.paid && (
+        {booking.totalPrice && booking.paid && !booking.status && (
           <p>
-            <button className="btn btn-xs">shiped</button>
+            <button onClick={() => handleUpdateStatus(booking._id)} className="btn btn-xs">Approve</button>
           </p>
         )}
       </td>

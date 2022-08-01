@@ -3,15 +3,16 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
+ 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD7byof7RGd2FqCEumupT2UJbRbxQavn2A",
-  authDomain: "onyx-moto.firebaseapp.com",
-  projectId: "onyx-moto",
-  storageBucket: "onyx-moto.appspot.com",
-  messagingSenderId: "456413645709",
-  appId: "1:456413645709:web:2d5e6ba208ee98d86c0bc4"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase
