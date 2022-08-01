@@ -21,16 +21,20 @@ const ManageOrders = () => {
       <tr>
         <th></th>
         <th>Email</th>
-        <th>Create Admin</th>
+        <th>Name</th>
+        <th>Parts Name</th>
+        <th>Quantity</th>
+        <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
    
     {
-      bookings.map(booking=><OrdersRow
+      bookings.map((booking,index)=><OrdersRow
       key={booking._id}
       booking={booking}
+      index={index}
       ></OrdersRow>)
     }
     </tbody>
