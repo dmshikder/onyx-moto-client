@@ -27,7 +27,7 @@ import Navbar from "./pages/Shared/Navbar";
 function App() {
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/allparts" element={<AllParts />}></Route>
