@@ -23,7 +23,7 @@ const ManageParts = () => {
    
     return (
       <div className="container max-w-7xl mx-auto">
-        <h1 className="text-xl text-center font-bold m-5">All Parts </h1>
+        <h1 className="text-xl text-center font-bold m-5">Manage Parts </h1>
         <div className=" grid sm:grid-cols-1 lg:grid-cols-3 gap-5 ml-4 mr-4">
           {parts.map((part) => (
            <div className='card bg-green-300 shadow-xl p-5 '>

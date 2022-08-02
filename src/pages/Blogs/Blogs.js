@@ -3,8 +3,8 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="grid sm:grid-cols-1 lg:grid-cols-3">
-      <div className="card m-4 shadow-xl p-8 bg-slate-200">
+    <div className="grid sm:grid-cols-1 lg:grid-cols-3 ">
+      <div className="card m-4 shadow-xl p-8 bg-slate-200 mt-20">
         <h5 className="font-bold">1. How will you improve the performance of a React Application?</h5>
         <p>
           <span className="text-red-500 font-bold">Answer:</span> <br /> React.js is known as
