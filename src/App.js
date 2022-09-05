@@ -23,7 +23,7 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import PurchaseIntent from "./pages/PurchaseIntent/PurchaseIntent";
 import Footer from "./pages/Shared/Footer";
 import Navbar from "./pages/Shared/Navbar";
-
+ 
 function App() {
   return (
     <div>
